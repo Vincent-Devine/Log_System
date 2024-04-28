@@ -15,6 +15,8 @@ $git submodule add git@github.com:Vincent-Devine/Log_System.git
 ## Functionnality
 ### Write log on file
 ```cpp
+#include "Log.hpp"
+
 // Start of your program
 Log::OpenFile("logfile.txt");
 
@@ -24,20 +26,26 @@ Log::OpenFile("logfile.txt");
 Log::CloseFile();
 ```
 
-## LOG
+### Logging
+Call define ```LOG``` to write to the log file and console the log message with log level, date, file, line and function.
 ```cpp
+#include "Log.hpp"
+
 LOG("Info log", LogLevel::Info);
 LOG("Validation log", LogLevel::Validation);
 LOG("Warning log", LogLevel::Warning);
 LOG("Critical log", LogLevel::Critical);
 ```
-[png](./Screenshot/log_result.png)
 
+Result: <br>
+![png](./Screenshot/log_result.png)
 
-Assertion(true, "True == true");
+### Assertion
+```cpp
+#include "Log.hpp"
 
+Assertion(true, "gg, true == true");
 ```
-
 
 ## Technologie
 - **C++ 20**
