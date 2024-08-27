@@ -120,7 +120,7 @@ namespace Log
         }
     }
 
-    void DebugLog(const std::string& filename, const unsigned int line, const std::string& functionName, const std::string& log, const Level logLevel)
+    inline void DebugLog(const std::string& filename, const unsigned int line, const std::string& functionName, const std::string& log, const Level logLevel)
     {
         std::string time = std::format("{:%T}", floor<std::chrono::seconds>(std::chrono::system_clock::now()));
         std::string message = "[" + time + "]" + filename + '(' + std::to_string(line) + "):" + functionName + ": " + log;
