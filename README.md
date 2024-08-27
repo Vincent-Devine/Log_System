@@ -1,10 +1,10 @@
 # Log System
-Log system write in C++
+Log system write in C++ (console & file)
 
 ## Table of Content
 - [Add to your project](#add-to-your-project)
 - [Functionnality](#functionnality)
-- [Technologie](#techonologie)
+- [Requirement](#requirement)
 - [Credit](#credit)
 
 ## Add to your project
@@ -12,13 +12,15 @@ Log system write in C++
 $git submodule add git@github.com:Vincent-Devine/Log_System.git
 ```
 
+Include ```Log.hpp``` in your files.
+
 ## Functionnality
 ### Write log on file
 ```cpp
 #include "Log.hpp"
 
 // Start of your program
-Log::OpenFile("logfile.txt");
+Log::OpenFile("log.txt");
 
 // ...
 
@@ -27,14 +29,19 @@ Log::CloseFile();
 ```
 
 ### Logging
-Call define ```LOG``` to write to the log file and console the log message with log level, date, file, line and function.
+Call macro ```LOG_INFO```, ```LOG_DEBUG```, ```LOG_WARNING``` or ```LOG_ERROR``` to write your log to the console and your file (if you've opened it before).<br>
+The log message is preceded by the log level, the time, the file, the line and the function in which th log was called.
 ```cpp
 #include "Log.hpp"
 
-LOG("Info log", LogLevel::Info);
-LOG("Validation log", LogLevel::Validation);
-LOG("Warning log", LogLevel::Warning);
-LOG("Critical log", LogLevel::Critical);
+int main()
+{
+    LOG_INFO("hello");
+    LOG_DEBUG("hello");
+    LOG_WARNING("hello");
+    LOG_ERROR("hello");
+    // ...
+}
 ```
 
 Result: <br>
@@ -47,8 +54,9 @@ Result: <br>
 Assertion(true, "gg, true == true");
 ```
 
-## Technologie
-- **C++ 20**
+## Requirement
+- C++ 20
+- Windows system
 
 ## Credit
 Vincent DEVINE
